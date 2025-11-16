@@ -21,7 +21,7 @@ function Header() {
                 </a>
               </li>
               <li>
-                <a href="#" className="hover:text-amber-600">
+                <a href="service" className="hover:text-amber-600">
                   УСЛУГИ
                 </a>
               </li>
