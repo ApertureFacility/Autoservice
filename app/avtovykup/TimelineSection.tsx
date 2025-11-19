@@ -1,4 +1,5 @@
-import { timelineItems } from "./data/TimeLine";
+import { timelineItems } from "./data/TimelineMassive.ts";
+
 
 export default function TimelineSection() {
   const items = timelineItems;
