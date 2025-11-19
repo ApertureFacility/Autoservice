@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 function Specs() {
   const brands = [
@@ -13,15 +14,23 @@ function Specs() {
     { name: "Volkswagen", img: "/brands/vw.png" },
   ];
 
-  const [index, setIndex] = useState(0);
+  // Дублируем, чтобы бесконечно крутить
+  const looped = [...brands, ...brands, ...brands];
+
+  const [index, setIndex] = useState(brands.length); 
+  // начинаем с середины, чтобы влево/вправо всегда было чем листать
 
   const next = () => {
-    setIndex((prev) => (prev + 4 >= brands.length ? 0 : prev + 4));
+    setIndex((prev) => prev + 1);
   };
 
   const prev = () => {
-    setIndex((prev) => (prev - 4 < 0 ? brands.length - 4 : prev - 4));
+    setIndex((prev) => prev - 1);
   };
+
+  // Чтобы не уходить в гигантские числа
+  const safeIndex = index % looped.length;
+  const translate = safeIndex * 25; // 25% = ширина одного элемента
 
   return (
     <div className="space-y-10 max-w-7xl mx-auto py-6 px-4">
@@ -29,52 +38,52 @@ function Specs() {
         Специализируемся на постгарантийном обслуживании
       </h2>
 
-      {/* slider */}
+      {/* SLIDER */}
       <div className="relative w-full overflow-hidden py-6">
-        {/* Стрелки */}
+
         <button
           onClick={prev}
           className="absolute left-0 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 z-10"
         >
-          ◀
+          <ChevronLeft size={24} />
         </button>
 
         <button
           onClick={next}
           className="absolute right-0 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-gray-300 rounded-full p-2 z-10"
         >
-          ▶
+          <ChevronRight size={24} />
         </button>
 
         {/* Слайдер */}
-        <div
-          className="flex transition-transform duration-500"
-          style={{
-            transform: `translateX(-${index * 100}%)`,
-            width: `${(brands.length / 4) * 100}%`,
-          }}
-        >
-          {brands.map((brand, i) => (
-            <div
-              key={i}
-              className="w-1/4 flex flex-col items-center justify-center p-4"
-            >
-              <Image
-                width={120}
-                height={120}
-                src={brand.img}
-                alt={brand.name}
-                className="h-20 object-contain mb-2"
-              />
-              <p className="text-center text-sm">{brand.name}</p>
-            </div>
-          ))}
+        <div className="overflow-hidden w-full">
+          <div
+            className="flex transition-transform duration-500"
+            style={{
+              transform: `translateX(-${translate}%)`,
+            }}
+          >
+            {looped.map((brand, i) => (
+              <div
+                key={i}
+                className="w-1/4 shrink-0 flex flex-col items-center justify-center p-4"
+              >
+                <Image
+                  width={120}
+                  height={120}
+                  src={brand.img}
+                  alt={brand.name}
+                  className="h-20 object-contain mb-2"
+                />
+                <p className="text-center text-sm">{brand.name}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      {/*text+img block */}
+      {/* TEXT + IMAGE */}
       <div className="flex flex-col md:flex-row gap-6 items-start w-full">
-        {/* Картинка */}
         <div className="w-full md:w-2/5 flex justify-center md:justify-start">
           <Image
             src="/Spec.png"
@@ -85,7 +94,6 @@ function Specs() {
           />
         </div>
 
-        {/* Текст */}
         <div className="w-full md:w-3/5 flex flex-col space-y-3 text-sm md:text-base leading-relaxed">
           <p>Мы сохраняем уровень и качество сервисов официальных дилеров...</p>
 
@@ -96,12 +104,10 @@ function Specs() {
               <Image src="/gear.png" width={18} height={18} alt="gear" />
               <span>Во время приемки у поставщиков</span>
             </li>
-
             <li className="flex items-start gap-2">
               <Image src="/gear.png" width={18} height={18} alt="gear" />
               <span>Перед продажей в собственном магазине</span>
             </li>
-
             <li className="flex items-start gap-2">
               <Image src="/gear.png" width={18} height={18} alt="gear" />
               <span>До ремонта и установки на автомобиль</span>
