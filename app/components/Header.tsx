@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -9,6 +10,7 @@ function Header() {
     <header className="w-full">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
         {/* LOGO */}
+        <Link href={"/"} >
         <Image
           src="/headericons/HeaderLogo.png"
           alt="Logo"
@@ -16,7 +18,7 @@ function Header() {
           height={13}
           priority
         />
-
+</Link>
         {/* BURGER (mobile) */}
         <button
           className="md:hidden flex flex-col space-y-1"
@@ -31,18 +33,13 @@ function Header() {
         <div className="hidden md:flex items-center space-x-6">
           <nav>
             <ul className="flex items-center space-x-8 text-sm font-medium">
-              <li><a href="#" className="hover:text-amber-600">ГЛАВНАЯ</a></li>
-              <li><a href="service" className="hover:text-amber-600">УСЛУГИ</a></li>
-              <li><a href="#" className="hover:text-amber-600">АВТОЗАПЧАСТИ</a></li>
-              <li>
-                <a
-                  href="#"
-                  className="text-amber-600 border-b-2 border-amber-600 pb-1"
-                >
-                  АВТОМОБИЛИ С ПРОБЕГОМ
-                </a>
-              </li>
-              <li><a href="#" className="hover:text-amber-600">КОНТАКТЫ</a></li>
+            <Link href={"/"}>
+              <li className="hover:text-amber-600">ГЛАВНАЯ</li>
+              </Link>
+              <Link href={"/avtovykup"}>
+              <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
+              <Link href={"/contacts"}>
+              <li className="hover:text-amber-600">КОНТАКТЫ</li></Link>
             </ul>
           </nav>
 
@@ -73,15 +70,15 @@ function Header() {
         <div className="md:hidden bg-white border-t">
           <nav className="px-4 py-4">
             <ul className="flex flex-col space-y-4 text-base font-medium">
-              <li><a href="#" className="hover:text-amber-600">ГЛАВНАЯ</a></li>
-              <li><a href="service" className="hover:text-amber-600">УСЛУГИ</a></li>
-              <li><a href="#" className="hover:text-amber-600">АВТОЗАПЧАСТИ</a></li>
-              <li>
-                <a href="#" className="text-amber-600 border-b-2 border-amber-600 pb-1">
-                  АВТОМОБИЛИ С ПРОБЕГОМ
-                </a>
-              </li>
-              <li><a href="#" className="hover:text-amber-600">КОНТАКТЫ</a></li>
+            <Link href={"/avtovykup"}>
+            <Link href={"/"}>
+              <li className="hover:text-amber-600">ГЛАВНАЯ</li>
+              </Link>
+              <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
+              <Link href={"/avtovykup"}>
+              <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
+              <Link href={"/contacts"}>
+              <li className="hover:text-amber-600">КОНТАКТЫ</li></Link>
             </ul>
 
             <div className="flex items-center space-x-4 mt-6">
