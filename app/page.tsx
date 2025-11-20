@@ -1,4 +1,5 @@
 import BottomSection from "./components/BottomSection";
+import CarBeforeAfter from "./components/CarRepaired";
 import Cuve from "./components/Cuve";
 import Specs from "./components/Specs";
 import TopSection from "./components/TopSection";
@@ -9,8 +10,10 @@ export default function Home() {
   return (
       <main className="">
       <TopSection/>
+      
       <Cuve/>
       <Specs/>
+      <CarBeforeAfter/>
       <WeSection/>
       <BottomSection/>
       </main>
