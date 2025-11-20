@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
 
 export default function CarExamples() {
   const examples = {
@@ -13,11 +12,17 @@ export default function CarExamples() {
       after: "/camryGood.png",
     },
     bmw: {
-      label: "BMW (боковое восстановление)",
-      title: "Пример работы — BMW восстановление двери и крыла",
+      label: "BMW ",
+      title: "Пример работы — BMW",
       before: "/BrakedBmw.png",
       after: "/bmwGood.jpg",
     },
+    mercedes: {
+      label: "Mercedes ",
+      title: "Пример работы — MercedesW220 восстановление пневмоподвески",
+      before: "/mersUpal.jpg",
+      after: "/mersok.png",
+    }
   } as const;
 
   const [selected, setSelected] = useState<keyof typeof examples>("bmw");
@@ -26,59 +31,60 @@ export default function CarExamples() {
   const current = examples[selected];
 
   return (
-    <div className="w-full max-w-4xl mx-auto space-y-6 select-none">
-      {/* SELECT */}
-      <div>
-        <label className="text-gray-600 text-sm">Выберите пример авто:</label>
-        <div className="relative">
-          <select
-            className="w-full mt-1 px-4 py-2 rounded-xl border bg-white shadow-md focus:outline-none"
-            value={selected}
-            onChange={(e) => setSelected(e.target.value as keyof typeof examples)}
-          >
-            {Object.entries(examples).map(([key, ex]) => (
-              <option key={key} value={key}>
-                {ex.label}
-              </option>
-            ))}
-          </select>
-          <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500" />
+    <div className="flex max-w-7xl mx-auto gap-8">
+      <div className="w-full max-w-4xl space-y-6 select-none">
+        <h2 className="text-xl md:text-2xl font-bold">{current.title}</h2>
+
+        {/* До / После */}
+        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
+          <Image
+            src={showAfter ? current.after : current.before}
+            alt={showAfter ? "after" : "before"}
+            fill
+            className="object-cover object-center"
+          />
+
+          {/* Переключатели */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
+            <button
+              onClick={() => setShowAfter(false)}
+              className={`px-4 py-2 rounded-xl shadow-md text-sm font-semibold backdrop-blur-md border ${
+                !showAfter ? "bg-white/80" : "bg-white/40"
+              }`}
+            >
+              До
+            </button>
+            <button
+              onClick={() => setShowAfter(true)}
+              className={`px-4 py-2 rounded-xl shadow-md text-sm font-semibold backdrop-blur-md border ${
+                showAfter ? "bg-white/80" : "bg-white/40"
+              }`}
+            >
+              После
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* TITLE */}
-      <div className="text-center">
-        <h2 className="text-2xl md:text-3xl font-bold">{current.title}</h2>
-      </div>
-
-      {/* DO / AFTER */}
-      <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl bg-black">
-        <Image
-          src={showAfter ? current.after : current.before}
-          alt={showAfter ? "after" : "before"}
-          fill
-          className="object-cover object-center"
-        />
-
-        {/* Кнопки переключения */}
-        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-4">
-          <button
-            onClick={() => setShowAfter(false)}
-            className={`px-4 py-2 rounded-xl shadow-md text-sm font-semibold backdrop-blur-md border ${
-              !showAfter ? "bg-white/80" : "bg-white/40"
-            }`}
-          >
-            До
-          </button>
-          <button
-            onClick={() => setShowAfter(true)}
-            className={`px-4 py-2 rounded-xl shadow-md text-sm font-semibold backdrop-blur-md border ${
-              showAfter ? "bg-white/80" : "bg-white/40"
-            }`}
-          >
-            После
-          </button>
-        </div>
+      {/* 👉 Список вместо select */}
+      <div className="flex flex-col gap-3 w-64">
+        {Object.entries(examples).map(([key, ex]) => {
+          const active = selected === key;
+          return (
+            <button
+              key={key}
+              onClick={() => setSelected(key as keyof typeof examples)}
+              className={`text-left px-4 py-3 rounded-xl border shadow-md transition 
+                ${
+                  active
+                    ? "bg-blue-600 text-white border-blue-600"
+                    : "bg-white hover:bg-gray-100"
+                }`}
+            >
+              {ex.label}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
