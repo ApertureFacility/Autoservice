@@ -70,11 +70,10 @@ function Header() {
         <div className="md:hidden bg-white border-t">
           <nav className="px-4 py-4">
             <ul className="flex flex-col space-y-4 text-base font-medium">
-            <Link href={"/avtovykup"}>
+
             <Link href={"/"}>
               <li className="hover:text-amber-600">ГЛАВНАЯ</li>
               </Link>
-              <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
               <Link href={"/avtovykup"}>
               <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
               <Link href={"/contacts"}>

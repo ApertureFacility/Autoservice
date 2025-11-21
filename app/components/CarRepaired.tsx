@@ -17,6 +17,12 @@ export default function CarExamples() {
       before: "/BrakedBmw.png",
       after: "/bmwGood.jpg",
     },
+    Subary: {
+      label: "Subary",
+      title: "Пример работы — Subary",
+      before: "/subarubad1.jpeg",
+      after: "/subaruok1.jpeg",
+    },
     mercedes: {
       label: "Mercedes ",
       title: "Пример работы — MercedesW220 восстановление пневмоподвески",
@@ -77,7 +83,7 @@ export default function CarExamples() {
               className={`text-left px-4 py-3 rounded-xl border shadow-md transition 
                 ${
                   active
-                    ? "bg-blue-600 text-white border-blue-600"
+                    ? "bg-amber-600 text-white border-amber-600"
                     : "bg-white hover:bg-gray-100"
                 }`}
             >

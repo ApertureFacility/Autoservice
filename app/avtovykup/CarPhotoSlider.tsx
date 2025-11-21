@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DamagedCars } from "./data/CarsPhotoDamaged";
@@ -8,7 +8,20 @@ import { DamagedCars } from "./data/CarsPhotoDamaged";
 export default function CarPhotoSlider() {
   const brands = DamagedCars;
   const [index, setIndex] = useState(0);
-  const itemsPerSlide = 3;
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
+
+  // === Адаптация под экран ===
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) setItemsPerSlide(1);        // мобилки
+      else if (window.innerWidth < 1024) setItemsPerSlide(2);  // планшеты
+      else setItemsPerSlide(3);                                // десктоп
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const next = () => {
     setIndex((prev) =>
@@ -41,16 +54,16 @@ export default function CarPhotoSlider() {
           {brands.map((brand, i) => (
             <div
               key={i}
-              className="flex flex-col items-center p-15"
-              style={{ width: `${100 / brands.length}%` }}
+              className="flex flex-col items-center p-4"
+              style={{ width: `${100 / (brands.length * (1 / itemsPerSlide))}%` }}
             >
-              <div className="w-[430px] h-80 mb-3 rounded overflow-hidden flex justify-center items-center">
+              <div className="w-full h-64 sm:h-72 md:h-80 mb-3 rounded overflow-hidden flex justify-center items-center">
                 <Image
                   src={brand.img}
                   alt={brand.name}
                   width={430}
                   height={320}
-                  className="object-cover rounded"
+                  className="object-cover w-full h-full rounded"
                 />
               </div>
 
@@ -66,16 +79,17 @@ export default function CarPhotoSlider() {
         </div>
       </div>
 
+      {/* Кнопки */}
       <button
         onClick={prev}
-        className="absolute left-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
+        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-0 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
+        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
       >
         <ChevronRight size={24} />
       </button>
