@@ -17,5 +17,6 @@ export default function Home() {
       <WeSection/>
       <BottomSection/>
       </main>
+      
   );
 }
