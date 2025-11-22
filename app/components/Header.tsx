@@ -35,17 +35,17 @@ function Header() {
           <nav>
             <ul className="flex items-center space-x-8 text-sm font-medium">
             <Link href={"/"}>
-              <li className="hover:text-amber-600 text-xl">ГЛАВНАЯ</li>
+              <li className="hover:text-amber-600 text-md">ГЛАВНАЯ</li>
               </Link>
               <Link href={"/avtovykup"}>
-              <li className="hover:text-amber-600 text-xl">ВЫКУП АВТО</li></Link>
+              <li className="hover:text-amber-600 text-md">ВЫКУП АВТО</li></Link>
               <Link href={"/contacts"}>
-              <li className="hover:text-amber-600 text-xl">КОНТАКТЫ</li></Link>
+              <li className="hover:text-amber-600 text-md">КОНТАКТЫ</li></Link>
             </ul>
           </nav>
 
           {/* CONTACT ICONS */}
-          <div className="flex items-center space-x-2 text-xl">
+          <div className="flex items-center space-x-2 text-md">
             <a href="#">
               <Image src="/headericons/viberLogo.svg" alt="viber" width={30} height={30} />
             </a>

@@ -14,14 +14,15 @@ export default function StoForm({ onClose }: { onClose?: () => void }) {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(formData);
   };
 
   // === Закрытие по ESC ===
@@ -106,7 +107,7 @@ export default function StoForm({ onClose }: { onClose?: () => void }) {
 
       <button
         type="submit"
-        className="mt-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 rounded-xl"
+        className="cursor-pointer mt-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold py-2 rounded-xl"
       >
         Отправить
       </button>
