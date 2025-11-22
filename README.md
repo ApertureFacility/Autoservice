@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚗 Autoservice — Лэндинг автосервиса
 
-## Getting Started
+Многостраничный лендинг (4 страницы), разработанный на **Next.js 16**, **React 19** и **Tailwind CSS 4**. Проект использует современный стек, анимации с **Framer Motion**, иконки из **Lucide React**, а также оптимизированную сборку Next.js.
 
-First, run the development server:
+---
+
+## 📄 Страницы проекта
+
+Проект включает 4 основные страницы:
+
+1. **Главная** — презентация автосервиса, услуги, преимущества, CTA-блоки.
+2. **Выкуп авто** — подробное описание услуг, по выкупу авто.
+3. **Контакты** — карта, форма обратной связи, контактная информация.
+
+*(Ты можешь указать точные названия страниц — напиши, и я обновлю README.)*
+
+---
+
+## 🛠️ Используемые технологии
+
+* **Next.js 16** — современный фреймворк для React с серверным рендерингом
+* **React 19** — актуальная версия React
+* **Tailwind CSS 4** —  CSS-фреймворк
+* **Framer Motion** — плавные и настраиваемые анимации
+* **Lucide React** — минималистичные SVG-иконки
+* **TypeScript 5** — статическая типизация
+* **ESLint 9** — линтинг и контроль качества кода
+
+---
+
+## 📦 Установка и запуск
+
+### 1. Клонировать репозиторий
+
+```bash
+git clone (https://github.com/ApertureFacility/Autoservice)
+cd autoservice
+```
+
+### 2. Установить зависимости
+
+```bash
+npm install
+```
+
+### 3. Запуск в режиме разработки
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 4. Сборка для продакшена
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Возможности проекта
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* Полностью адаптивная верстка
+* Плавные анимации
+* Статичные и серверные компоненты Next.js
+* Современная архитектура и типизация
+* Подготовлен для SEO
