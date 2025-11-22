@@ -82,14 +82,14 @@ export default function CarPhotoSlider() {
       {/* Кнопки */}
       <button
         onClick={prev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
+        className=" cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
       >
         <ChevronLeft size={24} />
       </button>
 
       <button
         onClick={next}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
+        className=" cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 bg-white shadow-lg rounded-full p-3 hover:bg-gray-100"
       >
         <ChevronRight size={24} />
       </button>

@@ -1,12 +1,13 @@
 import Image from "next/image";
+import { useModal } from "../context/ModalContext";
 
 function EvacuationSection() {
+  const { open } = useModal();
   return (
     <section className="max-w-7xl mx-auto px-4 py-10">
       <div className="flex flex-col md:flex-row items-center rounded-xl gap-10">
-        
         {/* Блок картинки */}
-        <div className="relative w-full md:w-1/2 aspect-[4/3] md:aspect-[5/4]">
+        <div className="relative w-full md:w-1/2 aspect-4/3 md:aspect-5/4">
           <Image
             src="/evacuator2.png"
             alt="evacuator image"
@@ -23,7 +24,8 @@ function EvacuationSection() {
           </h3>
 
           <p className="text-gray-700 font-medium">
-            Если машина не на ходу, бесплатно заберем ее на собственном эвакуаторе
+            Если машина не на ходу, бесплатно заберем ее на собственном
+            эвакуаторе
           </p>
 
           <form className="flex flex-col gap-3 mt-4 w-full max-w-sm">
@@ -40,14 +42,14 @@ function EvacuationSection() {
             />
 
             <button
-              type="submit"
-              className="bg-[#C38B56] text-white font-semibold py-2 rounded-md hover:bg-[#a77447] transition-colors"
+            type="button"
+              onClick={open}
+              className="cursor-pointer bg-[#C38B56] text-white font-semibold py-2 rounded-md hover:bg-[#a77447] transition-colors"
             >
               Нужен Эвакуатор
             </button>
           </form>
         </div>
-
       </div>
     </section>
   );

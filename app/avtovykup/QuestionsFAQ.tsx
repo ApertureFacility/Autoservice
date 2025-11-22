@@ -10,7 +10,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, index, isOpen, togg
     <div className="">
       <button
         onClick={() => toggle(index)}
-        className="w-full text-left py-4 px-2 flex justify-between items-center font-medium text-gray-800 border-b hover:text-[#C38B56]"
+        className="cursor-pointer w-full text-left py-4 px-2 flex justify-between items-center font-medium text-gray-800 border-b hover:text-[#C38B56]"
       >
         {question}
         <span className={`transform transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>

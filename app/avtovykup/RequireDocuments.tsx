@@ -10,10 +10,7 @@ const RequirementDocumnets: React.FC = () => {
         Что потребуется для оформления сделки
       </h2>
 
-      <div className="
-        flex flex-col md:flex-row 
-        gap-10 items-start
-      ">
+      <div className="flex flex-col md:flex-row gap-10 items-start">
         {/* Левая часть — текст */}
         <div className="flex-1 space-y-6">
           {requirements.map((req, i) => (
@@ -37,11 +34,7 @@ const RequirementDocumnets: React.FC = () => {
             height={700}
             src="/docs2.png"
             alt="Документы"
-            className="
-              w-full max-w-xs sm:max-w-sm md:max-w-md 
-              h-auto object-cover rounded 
-              md:ml-10
-            "
+            className="w-full max-w-xs sm:max-w-sm md:max-w-md h-auto object-cover rounded md:ml-10"
           />
         </div>
       </div>

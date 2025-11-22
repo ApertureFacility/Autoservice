@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { useModal } from "../context/ModalContext";
+
 
 function TopSection() {
+  const { open } = useModal();
+
   return (
     <div className="w-full">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 py-3 px-4">
@@ -48,7 +54,11 @@ function TopSection() {
             <p className="text-xl md:text-2xl font-bold">
               Полный комплекс услуг по ремонту и обслуживанию автомобилей
             </p>
-            <button className="mt-4 bg-amber-600 px-4 py-2 md:px-6 md:py-3 rounded-lg text-base md:text-lg">
+
+            <button
+              onClick={open}
+              className="mt-4 cursor-pointer bg-amber-600 px-4 py-2 md:px-6 md:py-3 rounded-lg text-base md:text-lg"
+            >
               Консультация и запись
             </button>
           </div>

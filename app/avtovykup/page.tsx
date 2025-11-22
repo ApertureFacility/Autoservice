@@ -9,8 +9,10 @@ import CarPhotoSlider from "./CarPhotoSlider";
 import RequirementDocumnets from "./RequireDocuments";
 import FAQ from "./QuestionsFAQ";
 import ConsultationBlock from "./ConsultationBlock";
+import { useModal } from "../context/ModalContext";
 
 export default function AutoBuyPage() {
+  const { open } = useModal();
   const items = [
     { label: "С арестом", img: "/vikup/arest.png" },
     { label: "Битые", img: "/vikup/bitaya.png" },
@@ -43,7 +45,7 @@ export default function AutoBuyPage() {
 </div>
 
         <div className="flex justify-center">
-          <button className="border mt-4 h-[50] w-[450] text-white bg-[#B86A22] rounded border-none">
+          <button onClick={open} className="cursor-pointer border mt-4 h-[50] w-[450] text-white bg-[#B86A22] rounded border-none">
             Продать за 2 часа
           </button>
         </div>

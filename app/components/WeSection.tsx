@@ -1,4 +1,7 @@
+"use client"
+
 import Image from "next/image";
+import { useModal } from "../context/ModalContext";
 
 const cards = [
   {
@@ -33,6 +36,7 @@ const cards = [
 ];
 
 function WeSection() {
+    const { open } = useModal();
   return (
     <div className="max-w-7xl mx-auto py-3 px-4">
       <h2 className="text-center mb-8 text-3xl">
@@ -59,7 +63,7 @@ function WeSection() {
       <div className="flex flex-col items-center text-center mt-10">
         <h3 className="text-2xl">Не любите очереди?</h3>
         <p className="text-xl mt-1 mb-1">Записывайтесь и приезжайте в удобное для вас время</p>
-        <button className="mt-4 bg-amber-600 px-6 py-3 rounded-lg text-lg text-white">
+        <button  onClick={open} className="mt-4 cursor-pointer bg-amber-600 px-6 py-3 rounded-lg text-lg text-white">
          Консультация и запись
         </button>
       </div>

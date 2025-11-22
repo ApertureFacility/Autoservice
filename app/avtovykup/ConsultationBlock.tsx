@@ -2,12 +2,7 @@ import Image from "next/image";
 
 function ConsultationBlock() {
   return (
-    <div className="
-      max-w-7xl mx-auto py-6 px-4
-      flex flex-col md:flex-row
-      items-center md:items-start
-      justify-between gap-8
-    ">
+    <div className="max-w-7xl mx-auto py-6 px-4 flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
       
       {/* Текст */}
       <div className="flex flex-col gap-4 max-w-md text-center md:text-start">

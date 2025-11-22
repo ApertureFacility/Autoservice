@@ -2,10 +2,11 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useModal } from "../context/ModalContext";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+    const { open } = useModal();
   return (
     <header className="w-full">
       <div className="max-w-7xl mx-auto flex items-center justify-between py-3 px-4">
@@ -34,12 +35,12 @@ function Header() {
           <nav>
             <ul className="flex items-center space-x-8 text-sm font-medium">
             <Link href={"/"}>
-              <li className="hover:text-amber-600">ГЛАВНАЯ</li>
+              <li className="hover:text-amber-600 text-xl">ГЛАВНАЯ</li>
               </Link>
               <Link href={"/avtovykup"}>
-              <li className="hover:text-amber-600">ВЫКУП АВТО</li></Link>
+              <li className="hover:text-amber-600 text-xl">ВЫКУП АВТО</li></Link>
               <Link href={"/contacts"}>
-              <li className="hover:text-amber-600">КОНТАКТЫ</li></Link>
+              <li className="hover:text-amber-600 text-xl">КОНТАКТЫ</li></Link>
             </ul>
           </nav>
 
@@ -58,9 +59,9 @@ function Header() {
             <a href="tel:+78432628403" className="font-semibold text-lg">
               8 843 262-84-03
             </a>
-            <a href="#" className="text-amber-600 underline text-sm">
+            <button onClick={open} className="text-amber-600  text-lg cursor-pointer">
               Заказать звонок
-            </a>
+            </button>
           </div>
         </div>
       </div>
